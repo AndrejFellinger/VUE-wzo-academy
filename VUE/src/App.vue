@@ -10,7 +10,7 @@
     <section class="aktualne bg">
       <h2>Polozky</h2>
       <ul>
-        <li v-for="polozka in polozky" >{{polozka}}</li>
+        <li v-for="item in items" :key="`item-${item.id}`">{{item}}</li>
       </ul>
     </section>
 
@@ -28,15 +28,15 @@ export default {
   data() {
     return {
       input: '',
-      polozky: [null],
+      items: [null],
       zmazane: [null]
     }
   },
   methods: {
     pridatItem() {
-      this.polozky.push({
+      this.items.push({
         text: this.input,
-        id: this.polozky.length + 1,
+        id: this.items.length + 1,
         is_deleted: false
         })
       this.input = ''
